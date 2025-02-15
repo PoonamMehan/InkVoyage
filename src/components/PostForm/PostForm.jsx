@@ -31,6 +31,7 @@ function PostForm() {
   
   useEffect(()=>{
     if(imageInputField){
+      console.log("field", imageInputField)
       setImageInputEmpty(false)
     }else{
       setImageInputEmpty(true)
