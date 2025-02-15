@@ -30,7 +30,7 @@ function PostForm() {
   const [imageInputEmpty, setImageInputEmpty] = useState(true)
   
   useEffect(()=>{
-    if(imageInputField.value){
+    if(imageInputField){
       setImageInputEmpty(false)
     }
   }, [imageInputField])
