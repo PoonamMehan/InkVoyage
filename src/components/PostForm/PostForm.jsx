@@ -11,8 +11,9 @@ import { addDataIn } from '../../store/editPostSlice';
 function PostForm() {
 
    const post = useSelector((state)=> state.postData).postData
+   
 
-  const {register, handleSubmit, setValue, control, getValues, formState} = useForm({
+  const {register, handleSubmit, setValue, control, getValues, watch} = useForm({
     defaultValues: {
       title: post?.title || "",
       slug: post?.id ||"",
@@ -25,9 +26,14 @@ function PostForm() {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData)
   const [fileError, setFileError] = useState("")
-  // const imageInputRef = useRef(null);
-  // const [postAndImageEntered, setPostAndImageEntered] = useState(true)
+  const imageInputField = watch("image");
+  const [imageInputEmpty, setImageInputEmpty] = useState(true)
   
+  useEffect(()=>{
+    if(imageInputField.value){
+      setImageInputEmpty(false)
+    }
+  }, [imageInputField])
 
   const submit = async(data) => {
     console.log("submit button clicked")
@@ -73,25 +79,13 @@ function PostForm() {
         const dbPost = await firebaseDbService.getPost(data.slug)
         console.log("id thing ", idThing)
         if(dbPost){
-          
           navigate(`/post/${dbPost.id}`);
         }
       }
     }
     console.log("submit got executed")
   }
-  //content, remove image from data
-  //learn about firebase's indexing
 
-
-  // const handleImageInputChange = ()=>{
-  //   if (imageInputRef.current && imageInputRef.current.value == ""){
-
-  //     setPostAndImageEntered(true)
-  //   }else{
-  //     setPostAndImageEntered(false)
-  //   }
-  // }
 
   const slugTransform = useCallback((value)=>{
     if(value && typeof value === "string"){
@@ -195,7 +189,7 @@ function PostForm() {
                 {...register("image", { required: !post })}
                 className="mb-4 text-black  py-2 px-3 rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full text-sm"
             />
-            {post && (
+            {(post && imageInputEmpty) && (
                 <div className="mb-4">
                     <img
                         src={appwriteStorageService.getFilePreview(post.featuredImage)}
