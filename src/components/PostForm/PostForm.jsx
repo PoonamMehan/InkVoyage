@@ -30,10 +30,8 @@ function PostForm() {
   const [imageInputEmpty, setImageInputEmpty] = useState(true)
   
   useEffect(()=>{
-    const val = imageInputField && imageInputField.length > 0
-    if(imageInputField){
-      console.log("legnth", imageInputField)
-      console.log("legnth 2", val)
+    const val = Array.isArray(imageInputField) && imageInputField.length > 0
+    if(val){
       setImageInputEmpty(false)
     }else{
       setImageInputEmpty(true)
