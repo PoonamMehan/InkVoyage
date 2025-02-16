@@ -33,7 +33,7 @@ function PostForm() {
     const val = imageInputField
     if(val){
       console.log("lemgth", imageInputField)
-      console.log("lemgth 2 ", val.File? (val.File):("none"))
+      console.log("lemgth 2 ", val.name? (val.name):("none"))
       
       setImageInputEmpty(false)
     }else{
