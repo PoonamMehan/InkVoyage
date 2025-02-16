@@ -38,7 +38,7 @@ return posts && posts.length !== 0 ? (
       ))}
   </div>
 ) : (
-  <div className="flex items-center justify-center h-48 bg-gray-50 rounded-xl shadow-md">
+  <div className="flex items-center justify-center h-48 bg-white rounded-xl shadow-md">
       <h1 className="text-2xl font-semibold text-gray-700">No posts to see here yet</h1>
   </div>
 );

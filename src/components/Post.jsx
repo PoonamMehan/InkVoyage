@@ -121,7 +121,7 @@ function Post() {
 //     {console.log(isAuthor, "isAuthor")}
 // </div> 
 
-<div className="min-h-[calc(100vh-theme('spacing.20'))] w-full bg-white text-gray-700 rounded-2xl shadow-md p-6 flex flex-col items-start">
+<div className="min-h-[calc(100vh-theme('spacing.20'))] w-full bg-white text-gray-700 rounded-2xl shadow-md px-6 pt-1 pb-6 flex flex-col items-start">
     {/* Author Controls */}
     {isAuthor && (
         <div className="mb-4 w-full flex justify-end">
