@@ -154,7 +154,7 @@ function Post() {
 
     {/* Title and Content */}
     <div className="w-full text-left">
-        <div className="text-4xl font-semibold text-gray-900 mb-4">{post.title}</div>
+        <div className="text-4xl font-semibold text-gray-900 mb-5">{post.title}</div>
         <div className="text-gray-700">{parse(post.content)}</div>
     </div>
 </div>
