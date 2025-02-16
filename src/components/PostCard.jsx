@@ -22,7 +22,7 @@ function PostCard({post}) {
     // </>
 
 <Link to={`/post/${post.id}`} className="block hover:opacity-80 transition-opacity duration-200">
-    <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-md bg-white">
+    <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-md bg-gray-300">
         <div className="h-40 overflow-hidden relative"> {/* Fixed height for consistent image size */}
             <img
                 className="w-full h-full object-cover object-center absolute top-0 left-0"

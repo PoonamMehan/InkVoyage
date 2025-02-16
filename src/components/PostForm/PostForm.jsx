@@ -216,7 +216,7 @@ function PostForm() {
                 <button
                     disabled={isButtonDisabled}
                     type="submit"
-                    className="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 shadow-md"
+                    className="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 shadow-md disabled:opacity-85"
                 >
                     {post ? "Update" : "Submit"}
                 </button>
