@@ -7,6 +7,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form'
 import firebaseDbService from '../../baas/firebase/fbDB';
 import { addDataIn } from '../../store/editPostSlice';
+import {Spinner} from "@radix-ui/themes"
 
 function PostForm() {
 
@@ -28,7 +29,7 @@ function PostForm() {
   const [fileError, setFileError] = useState("")
   const imageInputField = watch("image");
   const [imageInputEmpty, setImageInputEmpty] = useState(true)
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+  const [submitLoadingStarted, setSubmitLoadingStarted] = useState(false)
   
   useEffect(()=>{
     const val = imageInputField && imageInputField.length > 0
@@ -41,7 +42,7 @@ function PostForm() {
 
   const submit = async(data) => {
     console.log("submit button clicked")
-    setIsButtonDisabled(true)
+    setSubmitLoadingStarted(true)
 
     if(post){
       console.log("submiting after updating started")
@@ -214,14 +215,27 @@ function PostForm() {
 
             <div className="flex justify-center">
                 <button
-                    disabled={isButtonDisabled}
                     type="submit"
-                    className="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 shadow-md disabled:opacity-85"
+                    className="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 shadow-md"
                 >
                     {post ? "Update" : "Submit"}
                 </button>
             </div>
+            
         </div>
+
+        {submitLoadingStarted &&
+            <div className="w-[100vh] h-[100vh] absolute bg-white opacity-25">
+            </div>
+        }
+        {
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Spinner size="3" />
+          </div>
+           
+        }
+            
+        
     </div>
 </form>
 
