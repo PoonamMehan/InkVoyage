@@ -225,11 +225,11 @@ function PostForm() {
         </div>
 
         {submitLoadingStarted &&
-            <div className="w-[100vh] h-[100vh] absolute bg-white opacity-25">
+            <div className="w-[100vh] h-[100vh] absolute bg-white opacity-60">
             </div>
         }
         {submitLoadingStarted &&
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[30px]">
             <Spinner size="3" />
           </div>
            
