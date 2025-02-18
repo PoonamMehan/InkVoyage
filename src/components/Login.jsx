@@ -39,9 +39,12 @@ function Login() {
                 console.log(userData)
             }
         }catch(error){
-            console.log("Firebase LOGIN ERROR: ", error)
-            console.log("Firebase LOGIN ERROR: ", error.status)
-            setErrorMsg(error.message)
+            if(String(error.message).includes("invalid-credential")){
+                setErrorMsg("Invalid credentials!")
+            }
+            else{
+                setErrorMsg("There was some error trying to log you in. Try again!")
+            }
         }
     }
   return (
