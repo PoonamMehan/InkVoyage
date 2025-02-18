@@ -34,11 +34,12 @@ function Login() {
                     dispatch(storeLogin(userData))
                 }
                 console.log(checkingStoredUserData)
-                // navigate("/")
+                navigate("/")
                 setErrorMsg("Some error in fetching the current user data: "+ userData)
                 console.log(userData)
             }
         }catch(error){
+            console.log("Firebase LOGIN ERROR: ", error)
             setErrorMsg(error.message)
         }
     }
