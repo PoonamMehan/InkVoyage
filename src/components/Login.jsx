@@ -40,6 +40,7 @@ function Login() {
             }
         }catch(error){
             console.log("Firebase LOGIN ERROR: ", error)
+            console.log("Firebase LOGIN ERROR: ", error.status)
             setErrorMsg(error.message)
         }
     }
