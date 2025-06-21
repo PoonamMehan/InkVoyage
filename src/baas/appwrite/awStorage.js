@@ -33,7 +33,7 @@ export class AppwriteStorageService{
     }
     getFilePreview(fileId){
         console.log("appwrite file preview ran: ", fileId)
-        return this.bucket.getFilePreview(
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
