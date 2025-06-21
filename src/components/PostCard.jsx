@@ -32,7 +32,7 @@ function PostCard({post}) {
         </div>
         <div className="px-6 py-4">
             <div className="font-semibold text-xl mb-2 text-gray-900">
-                {post.title.length > 35 ? post.title.slice(0, 45) + "..." : post.title}
+                {post.title.length > 45 ? post.title.slice(0, 45) + "..." : post.title}
             </div>
         </div>
     </div>
