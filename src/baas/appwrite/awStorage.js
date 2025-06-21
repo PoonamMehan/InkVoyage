@@ -33,10 +33,15 @@ export class AppwriteStorageService{
     }
     getFilePreview(fileId){
         console.log("appwrite file preview ran: ", fileId)
-        return this.bucket.getFileView(
+        try{
+            return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
+        }catch(e){
+            console.log("Error in getting the file preview from appwrite: ", e);
+        }
+        
     }
 }
 

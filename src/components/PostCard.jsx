@@ -7,7 +7,7 @@ import appwriteStorageService from '../baas/appwrite/awStorage'
 
 function PostCard({post}) {
   console.log("post id", post)
-  const imgSrc = appwriteStorageService.getFilePreview(post.featuredImage)
+  const imgSrc = appwriteStorageService.getFilePreview(post.featuredImage);
   return (
     // <>
     // <Link to={`/post/${post.id}`}>
